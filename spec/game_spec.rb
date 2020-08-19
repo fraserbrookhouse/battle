@@ -2,8 +2,10 @@ require 'game'
 
 describe Game do
   subject(:game) { described_class.new(player_1, player_2) }
-  let(:player_1) { double :player }
-  let(:player_2) { double :player }
+  subject(:finished_game) { described_class.new(dead_player, player_2) }
+  let(:player_1) { double :player, hit_points: 60 }
+  let(:player_2) { double :player, hit_points: 60 }
+  let(:dead_player) { double :player, hit_points: 0 }
 
   describe '#player_1' do
     it 'retrieves the first player' do
@@ -39,9 +41,11 @@ describe Game do
 
   describe '#game_over?' do
     it 'returns true if a player has lost' do
-      allow(player_1).to receive(:hit_points).and_return(40)
-      allow(player_2).to receive(:hit_points).and_return(0)
-      expect(subject.game_over?).to eq true
+      expect(finished_game.game_over?).to eq true
+    end
+
+    it 'returns false if all players have > 0HP' do
+      expect(game.game_over?).to eq false
     end
   end
 end

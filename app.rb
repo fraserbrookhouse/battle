@@ -25,9 +25,22 @@ class Battle < Sinatra::Base
 
   get '/attack' do
     @game = $game
-    Attack.punch(@game.opponent_of(@game.current_turn))
     @game.switch_turn
     erb :attack
+  end
+
+  post '/attack' do
+    @game = $game
+    Attack.punch(@game.opponent_of(@game.current_turn))
+    if $game.game_over?
+      redirect '/game_over'
+    else
+      redirect '/attack'
+    end
+  end
+
+  get '/game_over' do
+    erb :game_over
   end
 
   # start the server if ruby file executed directly
