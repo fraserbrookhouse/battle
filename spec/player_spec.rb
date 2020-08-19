@@ -16,13 +16,6 @@ describe Player do
     end
   end
 
-  describe '#attack' do
-    it 'damages the player' do
-      expect(thanos).to receive(:receive_damage)
-      voldemort.attack(thanos)
-    end
-  end
-
   describe '#receive damage' do
     it 'reduces the player hit points' do
       expect { voldemort.receive_damage }.to change { voldemort.hit_points }.by(-10)
