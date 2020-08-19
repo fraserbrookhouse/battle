@@ -17,6 +17,6 @@ feature 'Attacking' do
     expect(page).to have_content 'Thanos: 90HP'
     click_button 'OK'
     click_button 'Attack'
-    expect(page).to have_content 'Voldemort 90HP'
+    expect(page).to have_content 'Voldemort: 90HP'
   end
 end
