@@ -39,7 +39,8 @@ describe Game do
 
   describe '#game_over?' do
     it 'returns true if a player has lost' do
-      allow(player_1).to receive(:hit_points).and_return(0)
+      allow(player_1).to receive(:hit_points).and_return(40)
+      allow(player_2).to receive(:hit_points).and_return(0)
       expect(subject.game_over?).to eq true
     end
   end
