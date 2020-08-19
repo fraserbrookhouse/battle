@@ -39,6 +39,12 @@ describe Game do
     end
   end
 
+  describe '#loser' do
+    it 'returns a player with 0HP or less' do
+      expect(finished_game.loser).to eq dead_player
+    end
+  end
+
   describe '#game_over?' do
     it 'returns true if a player has lost' do
       expect(finished_game.game_over?).to eq true
