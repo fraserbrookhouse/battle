@@ -1,7 +1,7 @@
 require 'sinatra/base'
-require 'player'
 
 class Battle < Sinatra::Base
+  require_relative 'lib/player'
   enable :sessions
 
   get '/' do
