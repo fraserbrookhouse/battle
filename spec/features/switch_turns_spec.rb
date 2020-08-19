@@ -8,7 +8,7 @@ feature 'Switch turns' do
     scenario ' after 1 player attacks' do
       sign_in_and_play
       click_button 'Attack'
-      click_link 'OK'
+      click_button 'OK'
       expect(page).not_to have_content "Voldemort's turn"
       expect(page).to have_content "Thanos's turn"
     end
