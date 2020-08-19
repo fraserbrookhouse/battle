@@ -26,6 +26,10 @@ class Game
     losing_players.any?
   end
 
+  def loser
+    losing_players.first
+  end
+
   private
 
   attr_reader :players
