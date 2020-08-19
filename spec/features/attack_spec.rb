@@ -13,10 +13,13 @@ feature 'Attacking' do
 
   scenario 'reduce Player 1 health to 90' do
     sign_in_and_play
-    click_button 'Attack'
-    expect(page).to have_content 'Thanos: 90HP'
-    click_button 'OK'
+    attack_and_confirm
     click_button 'Attack'
     expect(page).to have_content 'Voldemort: 90HP'
+  end
+  scenario 'reduce player 2 health to 90' do
+    sign_in_and_play
+    click_button 'Attack'
+    expect(page).to have_content 'Thanos: 90HP'
   end
 end
