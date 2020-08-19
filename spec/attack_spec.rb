@@ -1,7 +1,7 @@
 require 'attack'
 
 describe Attack do
-  let(:player) { double :player}
+  let(:player) { double :player }
 
   describe '#punch' do
     it 'damages the player' do
