@@ -3,6 +3,8 @@ require 'sinatra/base'
 class Battle < Sinatra::Base
   require_relative 'lib/player'
   require_relative 'lib/game'
+  require_relative 'lib/attack'
+
   enable :sessions
 
   get '/' do
@@ -23,7 +25,7 @@ class Battle < Sinatra::Base
 
   get '/attack' do
     @game = $game
-    @game.attack(@game.opponent_of(@game.current_turn))
+    Attack.punch(@game.opponent_of(@game.current_turn))
     @game.switch_turn
     erb :attack
   end
