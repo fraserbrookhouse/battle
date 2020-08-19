@@ -36,4 +36,11 @@ describe Game do
       expect(game.opponent_of(player_2)).to eq player_1
     end
   end
+
+  describe '#game_over?' do
+    it 'returns true if a player has lost' do
+      allow(player_1).to receive(:hit_points).and_return(0)
+      expect(subject.game_over?).to eq true
+    end
+  end
 end
