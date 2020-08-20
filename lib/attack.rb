@@ -7,7 +7,11 @@ class Attack
     new(player).punch
   end
 
+  def damage
+    rand(1..30)
+  end
+
   def punch
-    @player.receive_damage
+    @player.receive_damage(damage)
   end
 end

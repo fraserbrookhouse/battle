@@ -17,8 +17,8 @@ describe Player do
   end
 
   describe '#receive damage' do
-    it 'reduces the player hit points' do
-      expect { voldemort.receive_damage }.to change { voldemort.hit_points }.by(-10)
+    it 'reduces the player hit points by amount given as argument' do
+      expect { voldemort.receive_damage(15) }.to change { voldemort.hit_points }.by(-15)
     end
   end
 end
