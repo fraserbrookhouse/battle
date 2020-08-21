@@ -4,7 +4,6 @@ class Battle < Sinatra::Base
   require_relative 'lib/player'
   require_relative 'lib/game'
   require_relative 'lib/attack'
-  require_relative 'lib/skip_turn'
 
   enable :sessions
 
