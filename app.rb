@@ -4,6 +4,7 @@ class Battle < Sinatra::Base
   require_relative 'lib/player'
   require_relative 'lib/game'
   require_relative 'lib/attack'
+  require_relative 'lib/skip_turn'
 
   enable :sessions
 
@@ -20,6 +21,7 @@ class Battle < Sinatra::Base
 
   get '/play' do
     @game = Game.instance
+    @game.switch_turn
     erb :play
   end
 
@@ -37,6 +39,11 @@ class Battle < Sinatra::Base
     else
       redirect '/attack'
     end
+  end
+
+  get '/skip_turn' do
+    @game = Game.instance
+    erb :skip_turn
   end
 
   get '/game_over' do

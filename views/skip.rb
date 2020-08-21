@@ -1,12 +1,11 @@
 <h1 style="color:green">
-<%= @game.player_1.name %>
+  <%= @game.current_turn.name %>
 </h1> 
 <h2>
-attacked
+  rested and did not attack.
 </h2>
-<h1 style="color:red">
-<%= @game.player_2.name %>
-</h1>
+<br>
+<br>
 <br>
 <%= @game.player_1.name %>: <%= @game.player_1.hit_points %>HP
 <br>
